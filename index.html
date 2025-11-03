@@ -1,81 +1,53 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Edison5 — Room Spinner</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<p class="p1">&lt;!doctype html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="utf-8" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Edison5 — Room Spinner&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;link rel="stylesheet" href="styles.css" /&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;main class="app"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;header&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h1&gt;Edison5&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="tag"&gt;Spin the wheel — assign bedrooms randomly (no duplicates)&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="controls"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="lists"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="panel"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Users&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;textarea id="usersInput" rows="6" placeholder="Enter one user per line (default 5)"&gt;&lt;/textarea&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="small"&gt;Tip: press Enter to add multiple users.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="panel"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Bedrooms&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;textarea id="bedsInput" rows="6" placeholder="Enter one bedroom per line (default 5)"&gt;&lt;/textarea&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="small"&gt;Tip: names like "Room A", "Rm 101" or "Top Bunk" work fine.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="actions"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;input type="checkbox" id="animateCheckbox" checked /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Show spin animation</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="buttons"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;button id="assignBtn" class="primary"&gt;Assign Rooms&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;button id="resetBtn"&gt;Reset&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;button id="exportBtn"&gt;Export CSV&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="wheel-and-results"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="wheel-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;canvas id="wheel" width="420" height="420"&gt;&lt;/canvas&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="wheel-label"&gt;Wheel&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="currentUser" class="current-user"&gt;Ready&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="results-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Assignments&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="resultsArea" class="results-area"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;!-- assignments will appear here --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;small&gt;Made with ✨ for Edison5 — feel free to customize colors or behavior.&lt;/small&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/main&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="script.js"&gt;&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+  <main class="app">
+    <header>
+      <h1>Edison5</h1>
+      <p class="tag">Spin the wheel — assign bedrooms randomly (no duplicates)</p>
+    </header>
+
+    <section class="controls">
+      <div class="lists">
+        <div class="panel">
+          <h3>Users</h3>
+          <textarea id="usersInput" rows="6">Alice
+Ben
+Carla
+Daniel
+Emma</textarea>
+        </div>
+        <div class="panel">
+          <h3>Bedrooms</h3>
+          <textarea id="bedsInput" rows="6">Room A
+Room B
+Room C
+Room D
+Room E</textarea>
+        </div>
+      </div>
+      <div class="actions">
+        <label><input type="checkbox" id="animateCheckbox" checked /> Show spin animation</label>
+        <div class="buttons">
+          <button id="assignBtn" class="primary">Assign Rooms</button>
+          <button id="resetBtn">Reset</button>
+          <button id="exportBtn">Export CSV</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="wheel-and-results">
+      <canvas id="wheel" width="420" height="420"></canvas>
+      <div id="currentUser" class="current-user">Ready</div>
+      <div id="resultsArea" class="results-area"></div>
+    </section>
+
+    <script src="script.js"></script>
 </body>
 </html>
